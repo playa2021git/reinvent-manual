@@ -203,27 +203,64 @@ dialog p.illustration-note{font-size:12px;color:var(--muted);margin:-8px 0 16px}
 }
 .gem-guide p { font-size: clamp(16px, 1.5vw, 19px); line-height: 1.75; }
 .gem-intro { margin: 10px 0 24px; }
-.gem-grid {
+.gem-timeline {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
-.gem-option {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: clamp(16px, 2vw, 24px);
+.gem-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2.5fr);
+  gap: clamp(16px, 2vw, 28px);
+  align-items: center;
+  padding: 16px;
   background: white;
   border: 1px solid #d5e2ca;
   border-radius: 10px;
 }
-.gem-option-wide { grid-column: 1 / -1; }
-.gem-option h3 {
+.gem-stage > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.gem-stage h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   margin: 0;
   font-size: clamp(21px, 2vw, 28px);
-  line-height: 1.45;
+  line-height: 1.4;
 }
-.gem-option p { margin: 8px 0 16px; }
+.gem-stage-number {
+  display: grid;
+  flex: 0 0 36px;
+  height: 36px;
+  place-items: center;
+  background: var(--green);
+  color: white;
+  border-radius: 50%;
+  font-size: 18px;
+}
+.gem-stage p { margin: 8px 0 14px; }
+.gem-choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.gem-choice {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.gem-choice h4 { margin: 0; font-size: 18px; line-height: 1.45; }
+.gem-choice p { font-size: 16px; }
 .gem-prompt { color: var(--green); font-weight: 700; text-decoration: underline; }
 .gem-link {
   display: inline-flex;
@@ -242,18 +279,12 @@ dialog p.illustration-note{font-size:12px;color:var(--muted);margin:-8px 0 16px}
 .gem-link:hover { background: #286950; text-decoration: underline; }
 .gem-note { margin: 20px 0 0; }
 .help-faq-title { margin: 36px 0 12px; font-size: 24px; }
-@media (max-width: 650px) {
-  .gem-grid { grid-template-columns: 1fr; }
-}
-
 @media (min-width: 1100px) {
   .gem-guide { padding: 18px 26px; }
   .gem-guide h2 { font-size: 38px; }
-  .gem-guide .gem-intro { margin: 6px 0 10px; font-size: 17px; }
-  .gem-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
-  .gem-option { grid-column: span 2; padding: 14px 16px; }
-  .gem-option:nth-child(n+4) { grid-column: span 3; }
-  .gem-option h3 { font-size: 22px; line-height: 1.35; }
-  .gem-option p { margin: 6px 0 10px; font-size: 16px; line-height: 1.55; }
+  .gem-guide .gem-intro { margin: 6px 0 14px; font-size: 17px; }
   .gem-note { margin-top: 12px; font-size: 16px; }
+}
+@media (max-width: 750px) {
+  .gem-stage, .gem-choices { grid-template-columns: 1fr; }
 }
