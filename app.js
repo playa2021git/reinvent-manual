@@ -6,7 +6,7 @@ const steps=[
   goal:'再発明のプログラムは、主に<a href="https://playa2021git.github.io/block2script/" target="_blank" rel="noopener">Block2Script ↗</a>で開発します。',
   tasks:[
     '<a href="https://playa2021git.github.io/block2script-prompt-builder/#step3" target="_blank" rel="noopener">プロンプトメーカー ↗</a>を開くと「AI・音声機能」が表示される。初めてなら「何を作りたい？」から、作品の目的・部品・動く条件を入力し、「指示文をつくる」→「指示文をコピー」を押す。',
-    '<a href="https://gemini.google.com/gem/4d9dca9b64e8" target="_blank" rel="noopener">コード生成Gem ↗</a>に指示文を貼り、生成されたBlock2Script用のコードをコピーする。',
+    '<a href="https://gemini.google.com/gem/1mhp96TwFjUHCl3A1Huhec0TExXFE9I1P?usp=sharing" target="_blank" rel="noopener">コード生成Gem ↗</a>に指示文を貼り、生成されたBlock2Script用のコードをコピーする。',
     '<a href="https://playa2021git.github.io/block2script/" target="_blank" rel="noopener">Block2Script ↗</a>にコードを貼り、「検証」→「Scratchへ反映」の順に押す。デバイスガイドに沿って機材を接続し、緑の旗で実行する。',
     'センサの値、出力する部品の動き、両方をつなぐ条件の順に確かめる。Teachable Machineを使う場合は、Classごとに意図した出力になるか試す。',
     '反映した作品に名前を付け、.sb3で保存する。学習モデルを公開するときは先生に確認し、モデルURLを指定の場所に記録する。'
@@ -17,7 +17,7 @@ const steps=[
 },
 {title:'試して、よくする',goal:'目的に合う動作を確かめ、結果から改善する。',tasks:['「どんな入力で、どう動けば成功か」を先に決める。','実際の使用場面を想定して試し、条件と結果を記録する。明るさや距離などを変えたときも確認する。','うまくいったこと・いかなかったことと原因を考える。必要な改良を加え、もう一度試す。','入力と反応が両方見える動画を撮る。撮影する人には許可を取る。'],output:'動作動画と「条件／予想／結果／考察・改良」の記録。',help:'失敗を無理に作る必要はありません。意図どおりなら、どんな条件で確認したかを書こう。動かない部分も隠さず、できた部分と分けて記録します。'},
 {title:'製品の価値を整理する',goal:'何を解決できたか、根拠と限界を説明する。',tasks:['困りごとに対して、試作品がどこまで役立つかを動画や実験結果と結びつける。','部品名・数量を整理する。価格ガイド配布後に単価と合計を記入し、ケース・電源など含めた物を明記する。','今回できた機能と今後の案を分ける。一覧にない部品を使う将来案も、考察として書いてOK。'],output:'うまくいったこと、残る課題、改善案、1台分の部品代の概算。',help:'価格ガイドは後日配布予定です。今は部品名と数量を残しておこう。AIが出した価格は、そのまま確定情報にしないでください。'},
-{title:'伝わる発表にする',goal:'聞き手が、製品が役立つ理由を納得できる発表にする。',tasks:['先生のスライドテンプレートに沿って内容を整理する。','完成したコードを<a href="https://gemini.google.com/gem/f46807d04959" target="_blank" rel="noopener">プログラム解説図を作るAI ↗</a>に渡し、「このプログラムが何を受け取り、どう判断し、何を動かすか」を示す解説図を作る。',
+{title:'伝わる発表にする',goal:'聞き手が、製品が役立つ理由を納得できる発表にする。',tasks:['先生のスライドテンプレートに沿って内容を整理する。','完成したコードを<a href="https://gemini.google.com/gem/1SZXBRvYbbDHWhJm1Mq3AFjjx2H1G8-nx?usp=sharing" target="_blank" rel="noopener">プログラム解説図Gem ↗</a>に渡し、「このプログラムが何を受け取り、どう判断し、何を動かすか」を示す解説図を作る。',
 '解説図の条件と動作を自分のコード・実機の結果と照らし合わせ、違うところを直す。発表スライドに図と動作動画を載せ、誰にどう役立つかを説明する。','技術の選定理由、結果の分析、改良と残る課題を説明する。','「なぜその部品？」「うまくいかなかったことと対処は？」に答えられるか確認する。'],output:'指定テンプレートに沿った発表スライド。',help:'話し方の上手さだけで決まりません。図・動画・記録で根拠を伝えよう。テンプレートの詳細項目は原本確認後に反映します。',link:'https://docs.google.com/presentation/d/1FRSO_PMLDYnaBy1WB1jjiMz7o4ItDdiAOTSiTwyecWs/edit',label:'発表テンプレートを開く'}
 ];
 const developmentScreens = [
