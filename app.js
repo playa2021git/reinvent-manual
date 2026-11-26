@@ -20,6 +20,12 @@ const steps=[
 {title:'伝わる発表にする',goal:'聞き手が、製品が役立つ理由を納得できる発表にする。',tasks:['先生のスライドテンプレートに沿って内容を整理する。','完成したコードを<a href="https://gemini.google.com/gem/f46807d04959" target="_blank" rel="noopener">プログラム解説図を作るAI ↗</a>に渡し、「このプログラムが何を受け取り、どう判断し、何を動かすか」を示す解説図を作る。',
 '解説図の条件と動作を自分のコード・実機の結果と照らし合わせ、違うところを直す。発表スライドに図と動作動画を載せ、誰にどう役立つかを説明する。','技術の選定理由、結果の分析、改良と残る課題を説明する。','「なぜその部品？」「うまくいかなかったことと対処は？」に答えられるか確認する。'],output:'指定テンプレートに沿った発表スライド。',help:'話し方の上手さだけで決まりません。図・動画・記録で根拠を伝えよう。テンプレートの詳細項目は原本確認後に反映します。',link:'https://docs.google.com/presentation/d/1FRSO_PMLDYnaBy1WB1jjiMz7o4ItDdiAOTSiTwyecWs/edit',label:'発表テンプレートを開く'}
 ];
+const developmentScreens = [
+  {image:'prompt', label:'① 指示文をコピー', caption:'ステップ6で指示文を作り、結果欄の右上にある「指示文をコピー」を押します。'},
+  {image:'gem', label:'② Gemに貼り付け', caption:'コード生成Gemを開き、入力欄に Ctrl + V で貼り付けてから送信します。画像は未ログインのGeminiで貼り付けを再現したものです。'},
+  {image:'block2script', label:'③ 検証して実行', caption:'右側のScript欄に生成コードを貼り、「検証」→「Scratchへ反映」。中央上部の緑の旗で実行します。画面は連動サンプルです。'}
+];
+
 const dialog = document.querySelector('#step-dialog');
 const stepTitle = document.querySelector('#step-title');
 const stepContent = document.querySelector('#dialog-content');
@@ -33,13 +39,40 @@ function showStep(index) {
   document.querySelector('#step-position').textContent = `STEP ${String(index + 1).padStart(2, '0')} / ${steps.length}`;
   stepTitle.textContent = step.title;
   stepContent.innerHTML = `
-    <p class="step-goal">${step.goal}</p>
+    <div class="step-instructions"><p class="step-goal">${step.goal}</p>
     <h3>やること</h3>
     <ol>${step.tasks.map(task => `<li>${task}</li>`).join('')}</ol>
     <div class="output"><b>ここまでできたら残すもの</b><p>${step.output}</p></div>
     <h3>困ったときは</h3><p>${step.help}</p>
-    ${step.link ? `<a href="${step.link}" target="_blank" rel="noopener">${step.label} ↗</a>` : ''}
+    ${step.link ? `<a href="${step.link}" target="_blank" rel="noopener">${step.label} ↗</a>` : ''}</div>
   `;
+  if (index === 2) {
+    stepContent.insertAdjacentHTML('afterbegin', `
+      <aside class="development-screens" aria-label="操作画面">
+        <div class="screen-buttons" role="group" aria-label="見る画面を選ぶ">
+          ${developmentScreens.map(({label}, i) => `<button type="button" data-screen="${i}" aria-pressed="${i === 0}">${label}</button>`).join('')}
+        </div>
+        ${developmentScreens.map(({image, label, caption}, i) => `
+          <figure ${i ? 'hidden' : ''}>
+            <a href="assets/guide-${image}.jpg" target="_blank" rel="noopener" aria-label="${label}の画像を拡大（別タブ）">
+              <img src="assets/guide-${image}.jpg" width="1366" height="768" alt="${label}の操作画面">
+            </a>
+            <figcaption>${caption} 画像をクリックすると拡大できます。</figcaption>
+          </figure>
+        `).join('')}
+      </aside>`);
+    const screens = stepContent.querySelector('.development-screens');
+    const screenButtons = [...screens.querySelectorAll('button')];
+    const figures = [...screens.querySelectorAll('figure')];
+    screenButtons.forEach((button, selected) => button.addEventListener('click', () => {
+      screenButtons.forEach((item, i) => {
+        item.setAttribute('aria-pressed', String(i === selected));
+        figures[i].hidden = i !== selected;
+      });
+    }));
+  }
+  stepContent.classList.toggle('with-screens', index === 2);
+  dialog.classList.toggle('with-screens', index === 2);
   previousStep.disabled = index === 0;
   nextStep.textContent = index === steps.length - 1 ? '閉じる' : '次の手順 →';
   if (!dialog.open) dialog.showModal();

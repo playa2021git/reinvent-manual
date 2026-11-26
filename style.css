@@ -153,3 +153,29 @@ dialog p.illustration-note{font-size:12px;color:var(--muted);margin:-8px 0 16px}
   .step-heading, .step-controls { padding: 8px 14px; }
   #dialog-content { padding: 0 16px 16px; }
 }
+
+.screen-buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.screen-buttons button {
+  min-height: 44px; padding: 6px 12px; border: 1px solid #8fa89d;
+  border-radius: 7px; background: white; color: var(--green); font-weight: 700; cursor: pointer;
+}
+.screen-buttons button[aria-pressed="true"] { background: var(--green); color: white; }
+.development-screens { margin-top: 16px; }
+.development-screens figure { margin: 0; }
+.development-screens img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; }
+.development-screens figure a { display: block; }
+.development-screens figcaption { margin-top: 8px; color: var(--muted); font-size: 14px; }
+
+@media (min-width: 1100px) {
+  #step-dialog.with-screens { width: min(1270px, 95vw); }
+  #dialog-content.with-screens { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.18fr); gap: 26px; }
+  .with-screens .step-instructions { grid-column: 1; grid-row: 1; }
+  .development-screens { grid-column: 2; grid-row: 1; }
+  .steps .section-heading { margin-bottom: 16px; }
+  .steps .step-grid { gap: 14px; }
+  .steps .step-card { padding: 12px 16px; }
+  .steps .step-illustration { height: 91px; margin-top: 6px; }
+  .steps .step-card h3 { margin-top: 6px; }
+  .steps .step-card p { margin-bottom: 6px; }
+  .steps .card-footer { padding-top: 5px; }
+}
