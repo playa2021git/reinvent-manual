@@ -5,7 +5,7 @@ const steps=[
   title:'つくって、動かす',
   goal:'再発明のプログラムは、主に<a href="https://playa2021git.github.io/block2script/" target="_blank" rel="noopener">Block2Script ↗</a>で開発します。',
   tasks:[
-    '<a href="https://playa2021git.github.io/block2script-prompt-builder/#step3" target="_blank" rel="noopener">プロンプトメーカー ↗</a>を開くと「AI・音声機能」が表示される。初めてなら「何を作りたい？」から、作品の目的・部品・動く条件を入力し、「指示文をつくる」→「指示文をコピー」を押す。',
+    '<a href="https://playa2021git.github.io/block2script-prompt-builder/" target="_blank" rel="noopener">プロンプトメーカー ↗</a>を開き、「何を作りたい？」から、作品の目的・部品・動く条件を入力し、「指示文をつくる」→「指示文をコピー」を押す。',
     '<a href="https://gemini.google.com/gem/1mhp96TwFjUHCl3A1Huhec0TExXFE9I1P?usp=sharing" target="_blank" rel="noopener">コード生成Gem ↗</a>に指示文を貼り、生成されたBlock2Script用のコードをコピーする。',
     '<a href="https://playa2021git.github.io/block2script/" target="_blank" rel="noopener">Block2Script ↗</a>にコードを貼り、「検証」→「Scratchへ反映」の順に押す。デバイスガイドに沿って機材を接続し、緑の旗で実行する。',
     'センサの値、出力する部品の動き、両方をつなぐ条件の順に確かめる。Teachable Machineを使う場合は、Classごとに意図した出力になるか試す。',
